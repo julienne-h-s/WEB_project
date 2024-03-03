@@ -113,14 +113,15 @@ nav img{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 220px;
-    line-height: 200px;
+    font-size: 14vw; /* Розмір шрифту відсотками від ширини вікна */
+    line-height: 1.5;
     align-items: center;
     text-align: right;
-    right: 100px;
-    top: -15px;
+    right: 8%; /* Відступи від правого краю відсотками */
+    top: -9%; /* Відступи від верхнього краю відсотками */
     color: rgba(195, 178, 25, 0.456);
 }
+
 .houses{
     display: flex;
     position: absolute;
@@ -128,14 +129,14 @@ nav img{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 220px;
-    line-height: 200px;
+    font-size: 15vw; /* Розмір шрифту відсотками від ширини вікна */
+    line-height: 1.5;
     align-items: center;
     text-align: right;
-    right: 0;
-    top: 200px;
+    right: 5%; /* Відступи від правого краю відсотками */
+    top: 25%; /* Відступи від верхнього краю відсотками */
     color: rgba(45, 41, 7, 0.456);
-    z-index: 2;
+    z-index: 3;
 }
 .color-box{
     position: absolute;
@@ -155,19 +156,22 @@ nav img{
         position: absolute;
         top: 75px;
         right: 0;
-        z-index: 2;
+        z-index: 4;
         overflow: auto;
+       
     }
     .nav-links ul li{
         display: block;
         margin-top:10px;
         margin-bottom: 10px;
+       
     }
     .nav-links ul li a{
         color: #000;
     }
     .menu-icon{
         display: block;
+
     }
     #menuList{
         overflow: hidden;
@@ -185,17 +189,18 @@ nav img{
     width:77% ;
   }
   .color-box{
-    transform: translateX(75px);
+    transform: translateX(10%);
   }
-  .house{
-    font-size: 70px;
-    top: -79px;
-    left: 5px;
+  .house {
+    font-size: 23vw; /* Розмір шрифту відсотками від ширини вікна */
+    right: 1%; /* Відступи від правого краю відсотками */
+    top: -10%; /* Відступи від верхнього краю відсотками */
   }
-  .houses{
-    
-    font-size: 70px;
-    top: 0px;
+
+  .houses {
+    font-size: 25vw; /* Розмір шрифту відсотками від ширини вікна */
+    right: 1%; /* Відступи від правого краю відсотками */
+    top: 30%; /* Відступи від верхнього краю відсотками */
   }
   .col-1{
     flex-basis: 100%;
@@ -207,4 +212,52 @@ nav img{
   .col-1 p{
     font-size: 15px;
   }
+}
+
+/*----- adventage ----*/
+.adventage{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: top 100px; 
+}
+h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+p{
+    color:#777;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+
+}
+.line{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.adventage-col{
+    flex-basis: 31%;
+    background: hsla(51, 100%, 76%, 0.3);
+    border-radius: 10px ;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.adventage-col:hover{
+    box-shadow: 0 0 20px 0px rgba(136, 123, 10, 0.684);
+}
+@media (max-width: 700px){
+    .line{
+        flex-direction: column;
+
+    }
 }
