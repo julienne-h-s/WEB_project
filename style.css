@@ -29,7 +29,7 @@ nav img{
 .nav-links ul li{
     list-style: none;
     display: inline-block;
-    padding: 8px 12px;
+    padding: 8px 16px;
     position: relative;
 }
 .nav-links ul li a{
@@ -49,3 +49,98 @@ nav img{
 .nav-links ul li:hover::after{
     width: 100%;
 }
+.row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 25px 0;
+
+}
+.col-1{
+    flex-basis: 40%;
+    position: relative;
+    margin-left: 150px;
+}
+.col-1 h2{
+    font-size: 70px;
+}
+.col-1 p{
+    font-size: 20px;
+    color: #707070;
+    font-weight: 200;
+    z-index: 1;
+}
+
+.col-1::after{
+    content: '';
+    width: 10px;
+    height: 57%;
+    background: linear-gradient(hsl(54, 68%, 60%), rgba(255, 241, 113, 0.3), hsl(54, 74%, 62%));
+    position: absolute;
+    left: -40px;
+    top: 8px;
+}
+
+.col-2{
+    position: relative;
+    flex-basis: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.col-2 .controller{
+    width: 90%;
+    z-index: 1;
+}
+.color-box{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color:hsl(0, 0%, 0%);
+    border-radius: 20px 0 0 20px;
+    height: 100%;
+    width: 81%;
+    transform: translateX(100px);
+}
+.house{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 220px;
+    line-height: 200px;
+    align-items: center;
+    text-align: right;
+    right: 100px;
+    top: -15px;
+    color: rgba(195, 178, 25, 0.456);
+}
+.houses{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 220px;
+    line-height: 200px;
+    align-items: center;
+    text-align: right;
+    right: 0;
+    top: 200px;
+    color: rgba(45, 41, 7, 0.456);
+    z-index: 2;
+}
+.color-box{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color:hsla(51, 100%, 76%, 0.456);
+    border-radius: 20px 0 0 20px;
+    height: 100%;
+    width: 81%;
+    transform: translateX(100px);
+}
+
