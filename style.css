@@ -19,8 +19,12 @@ nav{
     align-items: center;
 }
 nav img{
-    width: 60px;
-
+    width: 50px;
+}
+.menu-icon{
+    width: 25px;
+    cursor: pointer;
+    display: none;
 }
 .nav-links{
     flex: 1;
@@ -59,15 +63,15 @@ nav img{
 .col-1{
     flex-basis: 40%;
     position: relative;
-    margin-left: 150px;
+    margin-left: 100px;
 }
 .col-1 h2{
     font-size: 70px;
 }
 .col-1 p{
-    font-size: 20px;
+    font-size: 16px;
     color: #707070;
-    font-weight: 200;
+    font-weight: 300;
     z-index: 1;
 }
 
@@ -144,3 +148,63 @@ nav img{
     transform: translateX(100px);
 }
 
+@media only screen and (max-width:700px){
+    .nav-links ul{
+        width: 100%;
+        background-color: hsla(51, 100%, 76%, 0.923);
+        position: absolute;
+        top: 75px;
+        right: 0;
+        z-index: 2;
+        overflow: auto;
+    }
+    .nav-links ul li{
+        display: block;
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+    .nav-links ul li a{
+        color: #000;
+    }
+    .menu-icon{
+        display: block;
+    }
+    #menuList{
+        overflow: hidden;
+        transition: 0.7s;
+    }
+    .row{
+        flex-direction: column-reverse;
+        margin: 50px 0;
+    }
+  .col-2{
+    flex-basis: 100%;
+    margin-bottom: 50px;
+  }
+  .col-2 .controller{
+    width:77% ;
+  }
+  .color-box{
+    transform: translateX(75px);
+  }
+  .house{
+    font-size: 70px;
+    top: -79px;
+    left: 5px;
+  }
+  .houses{
+    
+    font-size: 70px;
+    top: 0px;
+  }
+  .col-1{
+    flex-basis: 100%;
+    margin-left: 50px;
+  }
+  .col-1 h2{
+    font-size: 35px;
+  }
+  .col-1 p{
+    font-size: 15px;
+  }
+}

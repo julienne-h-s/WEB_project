@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modular houses</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +13,7 @@
       <nav>
         <a href="index.html"><img src="images/logo.png"></a>
         <div class="nav-links">
-          
-            <ul>
+            <ul id="menuList">
                 <li><a href="">Home</a></li>
                 <li><a href="">Adventage</a></li>
                 <li><a href="">Compare</a></li>
@@ -22,11 +21,12 @@
                 <li><a href="">Contact</a></li>
             </ul>
           </div>
+          <img src="images/menuu.webp" class="menu-icon" onclick="togglemenu()">
       </nav>
       <div class="row">
 
         <div class="col-1">
-          <h2>Modular<br>Houses</h2>
+          <h2>Let's talk<br>about...</h2>
           <p>Modular houses are built in a factory, which not only decreases construction time and guarantees higher quality of the house but also saves your money. Special modular house construction techniques significantly increase their energy efficiency.</p>
       
         </div>
@@ -41,5 +41,18 @@
       </div>
   
     </section>
+    <script>
+      var menuList = document.getElementById("menuList");
+      menuList.style.maxHeight = "0px";
+      function togglemenu(){
+        if(menuList.style.maxHeight == "0px")
+        {
+          menuList.style.maxHeight = "300px";
+        }
+        else{
+          menuList.style.maxHeight = "0px";
+        }
+      }
+    </script>
 </body>
 </html>
