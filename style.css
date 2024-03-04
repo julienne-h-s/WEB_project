@@ -448,3 +448,14 @@ padding: 100px 0;
     background: hsla(51, 91%, 44%, 0.781);
     transition: 1s;
 }
+@media (max-width: 700px){
+
+    .registration {
+        margin: 100px auto;
+        width: 80%;
+      }
+      .registration h1 {
+       font-size: 200%;
+      }
+    
+}
