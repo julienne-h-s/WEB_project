@@ -308,3 +308,46 @@ h3{
     bottom: 49%;
     opacity: 1;
 }
+/*----- reviews ----*/
+
+.reviews{
+    width: 80%;
+    margin: auto;
+    padding-top: 100px;
+    text-align: center;
+}
+.reviews-col{
+   flex-basis: 44%;
+   border-radius:10px ;
+   margin-bottom: 5%; 
+   text-align: left;
+   background: hsla(51, 100%, 76%, 0.3) ;
+   padding: 25px;
+   cursor: pointer;
+   display: flex;
+}
+.reviews-col img{
+    height: 60px;
+    margin-left: 15px;
+    margin-right: 30px;
+    border-radius: 50%;
+}
+.reviews-col p{
+    padding: 0;
+
+}
+.reviews-col h3{
+    margin-top: 15px;
+    text-align: left;
+}
+.reviews-col:hover{
+    box-shadow: 0 0 20px 0px rgba(136, 123, 10, 0.684);
+}
+@media (max-width: 700px){
+
+    .reviews-col img{
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+    
+}
