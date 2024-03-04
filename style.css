@@ -5,6 +5,9 @@
     font-optical-sizing: auto;
     font-style: normal;
   }
+  :root {
+    --main-color: hsla(51, 100%, 76%, 0.3);
+  }
 .header{
     min-height: 100vh;
     width: 100%;
@@ -240,7 +243,7 @@ p{
 }
 .adventage-col{
     flex-basis: 31%;
-    background: hsla(51, 100%, 76%, 0.3);
+    background: var(--main-color);
     border-radius: 10px ;
     margin-bottom: 5%;
     padding: 20px 12px;
@@ -321,7 +324,7 @@ h3{
    border-radius:10px ;
    margin-bottom: 5%; 
    text-align: left;
-   background: hsla(51, 100%, 76%, 0.3) ;
+   background: var(--main-color) ;
    padding: 25px;
    cursor: pointer;
    display: flex;
@@ -350,4 +353,49 @@ h3{
         margin-right: 10px;
     }
     
+}
+/*----- cta ----*/
+.cta{
+    margin: 100px auto;
+width: 80%;
+background-image: linear-gradient(hsla(0, 0%, 21%, 0.63), hsla(0, 0%, 22%, 0.63),rgba(219, 216, 193, 0.3)), url(images/contact.jpg);
+background-position: center;
+background-size: cover;
+border-radius: 10px;
+text-align: center;
+padding: 100px 0;
+
+}
+.cta h1{
+    color: #fff;
+    margin-bottom: 40px;
+    padding: 0;
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    border: 1px solid var(--main-color);
+    background: hsla(51, 77%, 29%, 0.3);
+    transition: 1s;
+}
+
+/*----- about ----*/
+.about{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+.about h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
 }

@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="header">
+    <section class="header" id="home">
       <nav>
         <a href="index.html"><img src="images/logo.png"></a>
         <div class="nav-links">
             <ul id="menuList">
-                <li><a href="">Home</a></li>
-                <li><a href="">Adventage</a></li>
-                <li><a href="">Compare</a></li>
-                <li><a href="">Reviews</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#adventage">Adventage</a></li>
+                <li><a href="#compare">Compare</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
           <img src="images/menuu.webp" class="menu-icon" onclick="togglemenu()">
@@ -41,7 +41,7 @@
       </div>
   
     </section>
-    <section class="adventage">
+    <section class="adventage" id="adventage">
       <h1>Adventage</h1>
       <p>Some of the key advantages include</p>
 
@@ -67,7 +67,7 @@
 </div>
     </section>
 
-    <section class="compare">
+    <section class="compare" id="compare">
       <h1>Compare</h1>
       <p>Comparing modular houses to other types of houses, such as traditional site-built homes or prefabricated homes, involves considering various factors including construction process, cost, customization options, quality, and sustainability</p>
       <div class="line">
@@ -92,7 +92,7 @@
       </div>
       </section>
 
-      <section class="reviews">
+      <section class="reviews" id="reviews">
         <h1>Reviews</h1>
       <p>Certainly! Here are some sample reviews about modular houses:</p>
       <div class="line">
@@ -114,7 +114,16 @@
       </div>
       </section>
 
-   
+      <section class="cta" id="contact">
+        <h1>Welcome to the future of housing: modular houses!</h1>
+        <a href="" class="hero-btn">CONTACT US</a>
+      </section>
+
+<section class="about">
+  <h4>About Us</h4>
+  <p>Whether you're looking for a cozy starter home, a spacious family residence, <br> or a stylish vacation retreat, Modular Houses has the solution for you. <br>Join us in shaping the future of housing with our innovative modular homes.</p>
+  <p style="color: rgba(103, 84, 0, 0.748)">Made with love by julienne</p>
+</section>
 
     <script>
       var menuList = document.getElementById("menuList");
