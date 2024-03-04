@@ -459,3 +459,8 @@ padding: 100px 0;
       }
     
 }
+@media only screen and (max-width: 1424px) {
+    .header {
+      min-height: 40vh; /* Зменшити висоту першого блоку на iPad */
+    }
+  }
