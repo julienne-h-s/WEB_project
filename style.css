@@ -399,3 +399,52 @@ padding: 100px 0;
     margin-top: 20px;
     font-weight: 600;
 }
+
+.registration {
+    margin: 100px auto;
+    width: 50%;
+    background: var(--main-color);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .registration h1 {
+    text-align: center;
+  }
+  
+  .registration form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .registration label {
+    margin-bottom: 5px;
+  }
+  
+  .registration input[type="text"],
+  .registration input[type="email"],
+  .registration input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .hero-btnn{
+    display: inline-block;
+    text-decoration: none;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btnn:hover{
+    border: 1px solid var(--main-color);
+    background: hsla(51, 91%, 44%, 0.781);
+    transition: 1s;
+}
