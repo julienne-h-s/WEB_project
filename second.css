@@ -178,3 +178,26 @@ button:hover{
     font-weight: bold;
     transition: 1s;
 }
+#filterResults {
+    padding: 20px; /* відступ від внутрішнього контенту */
+    margin: 0 auto; /* автоматичне вирівнювання по центру */
+    max-width: 600px; /* максимальна ширина контейнера */
+    text-align: left; /* вирівнювання тексту по лівому краю */
+}
+/* Стилі для рамки */
+#output {
+    white-space: pre-line; /* Це дозволить переносити рядки */
+    border: 1px solid black; /* Тут можна налаштувати стиль рамки */
+    padding: 10px; /* Внутрішній відступ рамки */
+  }
+#filterButtons {
+    text-align: center;
+}
+
+/* Додаткові стилі для результуючих даних */
+.result-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+

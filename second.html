@@ -26,9 +26,9 @@
             </li>
 
             <li>
-                <label for="q3">Скільки вам років?</label><br>
+                <label for="q3">Скільки заказів у нас Ви вже зробили?</label><br>
                 <br>
-                <input type="number" id="q3" name="q3" min="18" max="100">
+                <input type="number" id="q3" name="q3" min="0" max="100">
             </li>
             <li>
                 <label for="q4">Що спонукає вас використовувати наш продукт?</label><br>
@@ -80,5 +80,11 @@
         </ol>
         <button type="submit">Надіслати</button>
     </form>
+    <div id="filterButtons">
+        <button id="filterByAgeButton">Фільтр за віком 18 років</button>
+        <button id="filterByGenderButton">Фільтр за жіночою статтю</button>
+        <button id="filterByRatingButton">Фільтр за оцінкою 5 балів</button>
+    </div>
+    <div id="filterResults"></div>
     <script src="index.js"></script>
 </body>
