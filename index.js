@@ -56,8 +56,7 @@ document.addEventListener('DOMContentLoaded', function(){
         // Очищення форми після збереження даних
         form.reset();
 
-        // Перенаправлення користувача на головну сторінку
-        window.location.href = 'index.html';
+
     });
 
     // Виведення результатів за фільтрами при завантаженні сторінки
