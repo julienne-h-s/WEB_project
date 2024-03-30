@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular houses</title>
+    <link rel="stylesheet" href="second.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2 style="color: hsl(51, 97%, 24%)">Опитування</h2>
+    <br>
+    <form action="/submit_form" method="post">
+        <ol>
+            <li>
+                <label for="q1">Як ви оцінюєте якість наших продуктів?</label><br>
+                <br>
+                <input type="range" id="q1" name="q1" min="1" max="10">
+            </li>
+
+            <li>
+                <label for="q2">Як часто ви використовуєте наші послуги?</label><br>
+                <br><input type="checkbox" id="q2_1" name="q2" value="daily">
+                <label for="q2_1">Щоденно</label><br>
+                <input type="checkbox" id="q2_2" name="q2" value="weekly">
+                <label for="q2_2">Щотижнево</label><br>
+                <input type="checkbox" id="q2_3" name="q2" value="monthly">
+                <label for="q2_3">Щомісячно</label><br>
+            </li>
+            <li>
+                <label for="q3">Скільки вам років?</label><br>
+                <br>
+                <input type="number" id="q3" name="q3" min="18" max="100">
+            </li>
+            <li>
+                <label for="q4">Що спонукає вас використовувати наш продукт?</label><br>
+                <br>
+                <textarea id="q4" name="q4" rows="4" cols="50"></textarea>
+            </li>
+            <li>
+                <label for="q5">Який ваш улюблений продукт серед наших?</label><br>
+                <br>
+                <select id="q5" name="q5">
+                    <option value="product1">Продукт 1</option>
+                    <option value="product2">Продукт 2</option>
+                    <option value="product3">Продукт 3</option>
+                    <option value="other">Інше</option>
+                </select>
+            </li>
+            <li>
+                <fieldset>
+                    <legend>Яка ваша стать?</legend><br>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Чоловіча</label><br>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Жіноча</label><br>
+                    <input type="radio" id="other_gender" name="gender" value="other">
+                    <label for="other_gender">Інша</label>
+                </fieldset>
+            </li>
+            <li>
+                <label for="q7">Чи порекомендували б ви наші продукти своїм друзям?</label><br>
+                <br>
+                <input type="checkbox" id="recommendation" name="recommendation" value="yes">
+                <label for="recommendation">Так</label><br>
+            </li>
+            <li>
+                <label for="q8">Яку оцінку ви поставили б нашому сервісу (від 1 до 5)?</label><br>
+                <br>
+                <input type="number" id="q8" name="q8" min="1" max="5">
+            </li>
+            <li>
+                <label for="q9">Який ваш email (необов'язково)?</label><br>
+                <br>
+                <input type="email" id="q9" name="q9">
+            </li>
+            <li>
+                <label for="q10">Залиште свої додаткові коментарі або пропозиції:</label><br>
+                <br>
+                <input type="text" id="q10" name="q10">
+            </li>
+        </ol>
+        <button type="submit">Надіслати</button>
+    </form>
+</body>

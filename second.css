@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(136, 123, 10, 0.682);
+}
+
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 30px;
+}
+
+label {
+    font-weight: medium;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+textarea, select, input[type="text"], input[type="email"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+
+input[type="radio"]:checked + label,
+input[type="checkbox"]:checked + label {
+    font-weight: medium;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea,
+input[type="checkbox"],
+input[type="radio"],
+button {
+    border-color: rgb(136, 123, 10);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    background-color: hsla(51, 100%, 63%, 0.212);
+}
+/* Змінюємо колір після вибору чекбокса або радіокнопки */
+input[type="checkbox"]:checked + label,
+input[type="radio"]:checked + label {
+    color: hsl(51, 100%, 34%); /* Зміна кольору тексту після вибору */
+}
+
+/* Змінюємо колір після вибору галочки чекбокса або радіокнопки */
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label::before {
+    background-color: hsl(51, 100%, 34%); /* Зміна кольору фону після вибору */
+    border-color: hsl(51, 100%, 34%); /* Зміна кольору рамки після вибору */
+}
+
+/* Стилізація чекбоксів */
+input[type="checkbox"] {
+    -webkit-appearance: none; /* Забираємо стандартний стиль */
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px; /* Задаємо ширину */
+    height: 15px; /* Задаємо висоту */
+    background-color: transparent; /* Прозорий фон */
+    border: 2px solid  hsla(51, 97%, 24%, 0.404); /* Рамка */
+    border-radius: 4px; /* Округлені кути */
+    cursor: pointer; /* Курсор вказівника */
+}
+
+/* Задаємо стиль для чекбокса, коли він вибраний */
+input[type="checkbox"]:checked {
+    background-color: hsla(51, 97%, 24%, 0.404); /* Колір фону при виборі */
+}
+
+/* Стилізація радіокнопок */
+input[type="radio"] {
+    -webkit-appearance: none; /* Забираємо стандартний стиль */
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px; /* Задаємо ширину */
+    height: 15px; /* Задаємо висоту */
+    background-color: transparent; /* Прозорий фон */
+    border: 2px solid hsla(51, 97%, 24%, 0.404); /* Рамка */
+    border-radius: 50%; /* Кругла форма */
+    cursor: pointer; /* Курсор вказівника */
+}
+
+/* Задаємо стиль для радіокнопки, коли вона вибрана */
+input[type="radio"]:checked {
+    background-color: hsla(51, 97%, 24%, 0.404); /* Колір фону при виборі */
+}
+ /* Змінюємо колір повзунка */
+ input[type="range"] {
+    -webkit-appearance: none; /* Забираємо стандартний стиль повзунка */
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    background: rgba(128, 128, 128, 0.274); /* Фоновий колір */
+    border-radius: 5px; /* Округлені кути */
+}
+/* Змінюємо колір повзунка при натисканні */
+input[type="range"]:hover {
+    background: hsla(51, 100%, 63%, 0.384); /* Фоновий колір при наведенні */
+}
+/* Змінюємо колір повзунка при перетягуванні */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Забираємо стандартний стиль повзунка */
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(136, 123, 10, 0.684); /* Колір повзунка */
+    border-radius: 50%; /* Круглий повзунок */
+    cursor: pointer; /* Курсор вказівника */
+}
+form {
+    display: flex;
+    flex-direction: column; /* Розташовує елементи у стовпчик */
+    align-items: center; /* Вирівнює елементи по центру горизонтально */
+}
+button{
+    display: inline-block;
+    text-decoration: none;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+button:hover{
+    border: 1px solid var(--main-color);
+    background: hsl(51, 100%, 34%, 0.60);
+    color: #fff;
+    font-weight: bold;
+    transition: 1s;}
