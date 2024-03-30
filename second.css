@@ -37,7 +37,7 @@ input[type="range"] {
     width: 100%;
 }
 
-textarea, select, input[type="text"], input[type="email"], input[type="number"] {
+textarea, select, input[type="text"], input[type="email"], input[type="number"], input[type="date"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -58,7 +58,7 @@ input[type="radio"], input[type="checkbox"] {
 
 
 input[type="radio"]:checked + label,
-input[type="checkbox"]:checked + label {
+input[type="checkbox"]:checked + label{
     font-weight: medium;
 }
 
@@ -69,26 +69,30 @@ select,
 textarea,
 input[type="checkbox"],
 input[type="radio"],
-button {
-    border-color: rgb(136, 123, 10);
+button,
+input[type="date"]{
+    border-color: #ccc;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="number"]:focus,
 select:focus,
-textarea:focus {
+textarea:focus,
+input[type="date"]:focus {
     background-color: hsla(51, 100%, 63%, 0.212);
 }
 /* Змінюємо колір після вибору чекбокса або радіокнопки */
 input[type="checkbox"]:checked + label,
-input[type="radio"]:checked + label {
+input[type="radio"]:checked + label,
+input[type="date"]:checked + label {
     color: hsl(51, 100%, 34%); /* Зміна кольору тексту після вибору */
 }
 
 /* Змінюємо колір після вибору галочки чекбокса або радіокнопки */
 input[type="checkbox"]:checked + label::before,
-input[type="radio"]:checked + label::before {
+input[type="radio"]:checked + label::before,
+input[type="date"]:checked + label::before {
     background-color: hsl(51, 100%, 34%); /* Зміна кольору фону після вибору */
     border-color: hsl(51, 100%, 34%); /* Зміна кольору рамки після вибору */
 }
@@ -101,7 +105,7 @@ input[type="checkbox"] {
     width: 15px; /* Задаємо ширину */
     height: 15px; /* Задаємо висоту */
     background-color: transparent; /* Прозорий фон */
-    border: 2px solid  hsla(51, 97%, 24%, 0.404); /* Рамка */
+    border: 1px solid  hsla(0, 0%, 0%); /* Рамка */
     border-radius: 4px; /* Округлені кути */
     cursor: pointer; /* Курсор вказівника */
 }
@@ -119,7 +123,7 @@ input[type="radio"] {
     width: 15px; /* Задаємо ширину */
     height: 15px; /* Задаємо висоту */
     background-color: transparent; /* Прозорий фон */
-    border: 2px solid hsla(51, 97%, 24%, 0.404); /* Рамка */
+    border: 1px solid hsla(0, 0%, 0%); /* Рамка */
     border-radius: 50%; /* Кругла форма */
     cursor: pointer; /* Курсор вказівника */
 }
@@ -172,4 +176,5 @@ button:hover{
     background: hsl(51, 100%, 34%, 0.60);
     color: #fff;
     font-weight: bold;
-    transition: 1s;}
+    transition: 1s;
+}
