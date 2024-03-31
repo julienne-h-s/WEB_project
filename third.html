@@ -134,4 +134,206 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 </script>
+<div id="button-container">
+<button id="startGame">Start Game</button>
+</div>
+<div id="highScores">
+    <h2>High Scores</h2>
+    <ol id="highScoreList"></ol>
+</div>
+<div id="lowScores">
+    <h2>Low Scores</h2>
+    <ol id="lowScoreList"></ol>
+</div>
+<canvas id="gameCanvas" width="480" height="320"></canvas>
+<script>
+    var canvas = document.getElementById("gameCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var ballRadius = 10;
+    var x = canvas.width / 2;
+    var y = canvas.height - 30;
+    var dx = 2;
+    var dy = -2;
+
+    var paddleHeight = 10;
+    var paddleWidth = 75;
+    var paddleX = (canvas.width - paddleWidth) / 2;
+
+    var obstacleWidth = 50;
+    var obstacleHeight = 10;
+    var obstacleX = (canvas.width - obstacleWidth) / 2;
+    var obstacleY = 30;
+
+    var rightPressed = false;
+    var leftPressed = false;
+
+    var score = 0;
+
+    var highScores = [];
+    var lowScores = [];
+
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+    document.getElementById("startGame").addEventListener("click", startGame);
+
+    function keyDownHandler(e) {
+        if (e.key == "Right" || e.key == "ArrowRight") {
+            rightPressed = true;
+        } else if (e.key == "Left" || e.key == "ArrowLeft") {
+            leftPressed = true;
+        }
+    }
+
+    function keyUpHandler(e) {
+        if (e.key == "Right" || e.key == "ArrowRight") {
+            rightPressed = false;
+        } else if (e.key == "Left" || e.key == "ArrowLeft") {
+            leftPressed = false;
+        }
+    }
+
+    function startGame() {
+        resetGame();
+        draw();
+    }
+
+    function resetGame() {
+        score = 0;
+        x = canvas.width / 2;
+        y = canvas.height - 30;
+        paddleX = (canvas.width - paddleWidth) / 2;
+        obstacleX = (canvas.width - obstacleWidth) / 2;
+    }
+
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function drawPaddle() {
+        ctx.beginPath();
+        ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function drawObstacle() {
+        ctx.beginPath();
+        ctx.rect(obstacleX, obstacleY, obstacleWidth, obstacleHeight);
+        ctx.fillStyle = "#ad930099";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function collisionDetection() {
+        if (x > paddleX && x < paddleX + paddleWidth && y + dy > canvas.height - paddleHeight - ballRadius) {
+            dy = -dy;
+            score++;
+        }
+        if (x > obstacleX && x < obstacleX + obstacleWidth && y + dy < obstacleY + obstacleHeight && y + dy > obstacleY) {
+            dy = -dy;
+            score += 5;
+        }
+    }
+
+    function drawScore() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#000";
+        ctx.fillText("Score: " + score, 8, 20);
+    }
+
+    function updateHighScoreList() {
+        var highScoreList = document.getElementById("highScoreList");
+        highScoreList.innerHTML = "";
+        highScores.sort((a, b) => b - a);
+        highScores.slice(0, 3).forEach((score, index) => {
+            var li = document.createElement("li");
+            li.textContent = score;
+            highScoreList.appendChild(li);
+        });
+    }
+
+    function updateLowScoreList() {
+        var lowScoreList = document.getElementById("lowScoreList");
+        lowScoreList.innerHTML = "";
+        lowScores.sort((a, b) => a - b);
+        lowScores.slice(0, 3).forEach((score, index) => {
+            var li = document.createElement("li");
+            li.textContent = score;
+            lowScoreList.appendChild(li);
+        });
+    }
+
+    function saveScores() {
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        localStorage.setItem("lowScores", JSON.stringify(lowScores));
+    }
+
+    function loadScores() {
+        if (localStorage.getItem("highScores")) {
+            highScores = JSON.parse(localStorage.getItem("highScores"));
+            updateHighScoreList();
+        }
+        if (localStorage.getItem("lowScores")) {
+            lowScores = JSON.parse(localStorage.getItem("lowScores"));
+            updateLowScoreList();
+        }
+    }
+
+    function gameOver() {
+    highScores.push(score);
+    lowScores.push(score);
+    saveScores();
+    updateHighScoreList(); // Оновлюємо список найкращих результатів
+    updateLowScoreList(); // Оновлюємо список найгірших результатів
+    var answer = confirm("Game Over. Your Score: " + score + ". Do you want to play again?");
+    if (answer) {
+        resetGame();
+        draw();
+    }
+}
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBall();
+        drawPaddle();
+        drawObstacle();
+        drawScore();
+        collisionDetection();
+
+        if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+            dx = -dx;
+        }
+        if (y + dy < ballRadius) {
+            dy = -dy;
+        } else if (y + dy > canvas.height - ballRadius) {
+            if (x > paddleX && x < paddleX + paddleWidth) {
+                dy = -dy;
+            } else {
+                gameOver();
+                return;
+            }
+        }
+
+        if (rightPressed && paddleX < canvas.width - paddleWidth) {
+            paddleX += 7;
+        } else if (leftPressed && paddleX > 0) {
+            paddleX -= 7;
+        }
+
+        x += dx;
+        y += dy;
+
+        requestAnimationFrame(draw);
+    }
+
+    loadScores();
+</script>
+
 </html>

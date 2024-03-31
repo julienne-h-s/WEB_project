@@ -76,3 +76,67 @@ input[type="radio"]:checked {
     color: rgb(255, 181, 181);
     font-weight: bold;
 }
+@media only screen and (max-width: 600px) {
+    /* Додавання відступу 5px з усіх сторін */
+    form {
+        margin: 5px;
+    }
+}
+
+canvas {
+    border: 1px solid black;
+    display: block;
+    margin: 0 auto;
+}
+#gameCanvas {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid black;
+    margin-bottom: 50px;
+}
+
+#startGame, #highScores, #lowScores {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#highScores, #lowScores {
+    border-top: 2px solid black;
+    padding-top: 10px;
+}
+
+#highScores h2, #lowScores h2 {
+    margin-top: 0;
+}
+
+#highScoreList, #lowScoreList {
+    list-style: none;
+    padding-left: 0;
+}
+
+#highScoreList li, #lowScoreList li {
+    margin-bottom: 5px;
+}
+#button-container {
+    text-align: center; /* Вирівнюємо текст по центру */
+}
+
+#startGame {
+    display: inline-block;
+    text-decoration: none;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+#startGame:hover {
+    border: 1px solid var(--main-color);
+    background: #ad930099;
+    color: #fff;
+    font-weight: bold;
+    transition: 1s;
+}

@@ -215,18 +215,18 @@
   <p>Whether you're looking for a cozy starter home, a spacious family residence, <br> or a stylish vacation retreat, Modular Houses has the solution for you. <br>Join us in shaping the future of housing with our innovative modular homes.</p>
   <p style="color: rgba(103, 84, 0, 0.748)">Made with love by julienne</p>
 </section>
-    <script>
-      var menuList = document.getElementById("menuList");
+<script>
+  var menuList = document.getElementById("menuList");
+  menuList.style.maxHeight = "0px";
+  function togglemenu(){
+    if(menuList.style.maxHeight == "0px")
+    {
+      menuList.style.maxHeight = "300px";
+    }
+    else{
       menuList.style.maxHeight = "0px";
-      function togglemenu(){
-        if(menuList.style.maxHeight == "0px")
-        {
-          menuList.style.maxHeight = "300px";
-        }
-        else{
-          menuList.style.maxHeight = "0px";
-        }
-      }
-    </script>
+    }
+  }
+</script>
 </body>
 </html>
