@@ -201,4 +201,10 @@ button:hover{
     margin-bottom: 10px;
 }
 
+@media only screen and (max-width: 600px) {
+    /* Додавання відступу 5px з усіх сторін */
+    form {
+        margin: 5px;
+    }
+}
 

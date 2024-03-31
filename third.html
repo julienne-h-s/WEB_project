@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular houses</title>
+    <link rel="stylesheet" href="third.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="third.json"></script>
+</head>
+<body>
+    <a href="index.html" style="position: absolute; top: 10px; left: 10px; font-size: 20px; color: hsl(51, 100%, 34%);">&#8592;Back</a>
+<div id="test-container">
+    <h1>Тест про модульні будинки</h1>
+    <div id="questions-container"></div>
+    <button id="submit-btn">Перевірити результат</button>
+    <div id="result"></div>
+</div>
+<script src="script.js"></script>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const testData = {
+    testName: "Тест про модульні будинки",
+    questions: [
+      {
+        question: "Коли був збудований перший модульний будинок?",
+        answers: [
+          { answer: "1837", isCorrect: true },
+          { answer: "1900", isCorrect: false },
+          { answer: "2001", isCorrect: false },
+          { answer: "2019", isCorrect: false }
+        ]
+      },
+      {
+        question: "Яка основна перевага модульних будинків порівняно з традиційними зведеннями?",
+        answers: [
+          { answer: "Швидкість будівництва", isCorrect: true },
+          { answer: "Нижчі вартості", isCorrect: false },
+          { answer: "Більша стійкість до землетрусів", isCorrect: false },
+          { answer: "Екологічність матеріалів", isCorrect: false }
+        ]
+      },
+      {
+        question: "Який фактор може впливати на ціну модульного будинку найбільше?",
+        answers: [
+          { answer: "Площа будинку", isCorrect: false },
+          { answer: "Вибір ексклюзивних матеріалів", isCorrect: false },
+          { answer: "Місце розташування", isCorrect: false },
+          { answer: "Ступінь розкішного оздоблення", isCorrect: true }
+        ]
+      },
+      {
+        question: "Які можливості надає модульне будівництво для персоналізації житла?",
+        answers: [
+          { answer: "Можливість зміни планування", isCorrect: true },
+          { answer: "Вибір дизайну і кольорів", isCorrect: false },
+          { answer: "Додаткові сервіси і зручності", isCorrect: false },
+          { answer: "Відкрите простірне планування", isCorrect: false }
+        ]
+      },
+      {
+        question: "Які переваги має модульний будинок для сімей з дітьми?",
+        answers: [
+          { answer: "Безпечність екологічних матеріалів", isCorrect: false },
+          { answer: "Можливість швидкої зміни місця проживання", isCorrect: false },
+          { answer: "Гнучкість планування для врахування потреб розвиваючоїся сім'ї", isCorrect: true },
+          { answer: "Наявність додаткових зон відпочинку та ігор", isCorrect: false }
+        ]
+      }
+    ]
+  };
+
+  const questionsContainer = document.getElementById('questions-container');
+  const submitButton = document.getElementById('submit-btn');
+  const resultDisplay = document.getElementById('result');
+
+  // Функція для відображення питань та варіантів відповідей
+  function renderQuestions() {
+    testData.questions.forEach((question, index) => {
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('question');
+      questionDiv.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
+      question.answers.forEach((answer, answerIndex) => {
+        const answerInput = document.createElement('input');
+        answerInput.type = 'radio';
+        answerInput.name = `question-${index}`;
+        answerInput.value = answerIndex; // встановлюємо значення як індекс відповіді
+        questionDiv.appendChild(answerInput);
+        const answerLabel = document.createElement('label');
+        answerLabel.classList.add('answer');
+        answerLabel.textContent = answer.answer;
+        questionDiv.appendChild(answerLabel);
+        questionDiv.appendChild(document.createElement('br'));
+      });
+      questionsContainer.appendChild(questionDiv);
+    });
+  }
+
+  // Функція для перевірки відповідей та відображення результату
+  function checkAnswers() {
+    const userAnswers = [];
+    testData.questions.forEach((question, index) => {
+      const selectedAnswer = document.querySelector(`input[name="question-${index}"]:checked`);
+      if (selectedAnswer) {
+        userAnswers.push(selectedAnswer.value);
+        const isCorrect = question.answers[selectedAnswer.value].isCorrect;
+        if (isCorrect) {
+          selectedAnswer.nextElementSibling.classList.add('correct'); // підсвічуємо наступний елемент після вибраної відповіді
+        } else {
+          selectedAnswer.nextElementSibling.classList.add('incorrect'); // підсвічуємо наступний елемент після вибраної відповіді
+        }
+      } else {
+        userAnswers.push(null);
+      }
+    });
+    const correctAnswers = testData.questions.map(question => {
+      return question.answers.findIndex(answer => answer.isCorrect);
+    });
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index].toString()) {
+        correctCount++;
+      }
+    });
+    const percentage = (correctCount / testData.questions.length) * 100;
+    resultDisplay.textContent = `Ваш результат: ${correctCount} правильних відповідей з ${testData.questions.length} (${percentage}%)`;
+  }
+
+  renderQuestions();
+
+  submitButton.addEventListener('click', checkAnswers);
+});
+
+</script>
+</html>
