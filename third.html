@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="third.json"></script>
 </head>
 <body>
     <a href="index.html" style="position: absolute; top: 10px; left: 10px; font-size: 20px; color: hsl(51, 100%, 34%);">&#8592;Back</a>
@@ -17,6 +16,7 @@
     <button id="submit-btn">Перевірити результат</button>
     <div id="result"></div>
 </div>
+
 <script src="script.js"></script>
 </body>
 <script>
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     testName: "Тест про модульні будинки",
     questions: [
       {
-        question: "Коли був збудований перший модульний будинок?",
+        question: "Коли був збудований перший модульний будинок?", 
         answers: [
           { answer: "1837", isCorrect: true },
           { answer: "1900", isCorrect: false },
@@ -145,39 +145,39 @@ document.addEventListener('DOMContentLoaded', function () {
     <h2>Low Scores</h2>
     <ol id="lowScoreList"></ol>
 </div>
-<canvas id="gameCanvas" width="480" height="320"></canvas>
+<canvas id="gameCanvas" width="480" height="320"></canvas> 
 <script>
-    var canvas = document.getElementById("gameCanvas");
+    var canvas = document.getElementById("gameCanvas"); 
     var ctx = canvas.getContext("2d");
-
+// Параметри м'яча
     var ballRadius = 10;
     var x = canvas.width / 2;
     var y = canvas.height - 30;
     var dx = 2;
     var dy = -2;
-
+// Параметри ракетки
     var paddleHeight = 10;
     var paddleWidth = 75;
     var paddleX = (canvas.width - paddleWidth) / 2;
-
+// Параметри перешкоди
     var obstacleWidth = 50;
     var obstacleHeight = 10;
     var obstacleX = (canvas.width - obstacleWidth) / 2;
     var obstacleY = 30;
-
+// Флаги для відстеження натискання клавіш
     var rightPressed = false;
     var leftPressed = false;
-
+// Змінна для збереження рахунку гри
     var score = 0;
-
+// Масиви для збереження найкращих та найгірших результатів
     var highScores = [];
     var lowScores = [];
-
+// Додавання обробників подій для клавіш
     document.addEventListener("keydown", keyDownHandler, false);
     document.addEventListener("keyup", keyUpHandler, false);
-
+// Додавання обробника події для кнопки "Start Game"
     document.getElementById("startGame").addEventListener("click", startGame);
-
+// Функція для обробки натискання клавіш
     function keyDownHandler(e) {
         if (e.key == "Right" || e.key == "ArrowRight") {
             rightPressed = true;
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
             leftPressed = true;
         }
     }
-
+// Функція для обробки звільнення клавіш
     function keyUpHandler(e) {
         if (e.key == "Right" || e.key == "ArrowRight") {
             rightPressed = false;
@@ -193,12 +193,12 @@ document.addEventListener('DOMContentLoaded', function () {
             leftPressed = false;
         }
     }
-
+// Функція для початку гри
     function startGame() {
         resetGame();
         draw();
     }
-
+// Функція для скидання гри до початкового стану
     function resetGame() {
         score = 0;
         x = canvas.width / 2;
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
         paddleX = (canvas.width - paddleWidth) / 2;
         obstacleX = (canvas.width - obstacleWidth) / 2;
     }
-
+// Функція для малювання м'яча
     function drawBall() {
         ctx.beginPath();
         ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ctx.fill();
         ctx.closePath();
     }
-
+// Функція для малювання ракетки
     function drawPaddle() {
         ctx.beginPath();
         ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ctx.fill();
         ctx.closePath();
     }
-
+// Функція для малювання перешкоди
     function drawObstacle() {
         ctx.beginPath();
         ctx.rect(obstacleX, obstacleY, obstacleWidth, obstacleHeight);
@@ -230,24 +230,25 @@ document.addEventListener('DOMContentLoaded', function () {
         ctx.fill();
         ctx.closePath();
     }
-
+// Функція для виявлення зіткнень
     function collisionDetection() {
+       // Перевірка зіткнення з ракеткою
         if (x > paddleX && x < paddleX + paddleWidth && y + dy > canvas.height - paddleHeight - ballRadius) {
             dy = -dy;
             score++;
-        }
+        }  // Перевірка зіткнення з перешкодою
         if (x > obstacleX && x < obstacleX + obstacleWidth && y + dy < obstacleY + obstacleHeight && y + dy > obstacleY) {
             dy = -dy;
             score += 5;
         }
     }
-
+// Функція для відображення рахунку гри
     function drawScore() {
         ctx.font = "16px Arial";
         ctx.fillStyle = "#000";
         ctx.fillText("Score: " + score, 8, 20);
     }
-
+// Функція для оновлення списку найкращих результатів
     function updateHighScoreList() {
         var highScoreList = document.getElementById("highScoreList");
         highScoreList.innerHTML = "";
@@ -258,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
             highScoreList.appendChild(li);
         });
     }
-
+// Функція для оновлення списку найгірших результатів
     function updateLowScoreList() {
         var lowScoreList = document.getElementById("lowScoreList");
         lowScoreList.innerHTML = "";
@@ -269,12 +270,12 @@ document.addEventListener('DOMContentLoaded', function () {
             lowScoreList.appendChild(li);
         });
     }
-
+// Функція для збереження результатів у локальному сховищі
     function saveScores() {
         localStorage.setItem("highScores", JSON.stringify(highScores));
         localStorage.setItem("lowScores", JSON.stringify(lowScores));
     }
-
+// Функція для завантаження результатів з локального сховища
     function loadScores() {
         if (localStorage.getItem("highScores")) {
             highScores = JSON.parse(localStorage.getItem("highScores"));
@@ -285,20 +286,23 @@ document.addEventListener('DOMContentLoaded', function () {
             updateLowScoreList();
         }
     }
-
-    function gameOver() {
+// Функція, яка викликається при завершенні гри
+    function gameOver() 
+    {
+      // Збереження результату
     highScores.push(score);
     lowScores.push(score);
     saveScores();
     updateHighScoreList(); // Оновлюємо список найкращих результатів
     updateLowScoreList(); // Оновлюємо список найгірших результатів
+     // Виведення повідомлення та перезапуск гри за бажанням користувача
     var answer = confirm("Game Over. Your Score: " + score + ". Do you want to play again?");
     if (answer) {
         resetGame();
         draw();
     }
 }
-
+// Функція для малювання всіх об'єктів на екрані
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawBall();
@@ -306,13 +310,15 @@ document.addEventListener('DOMContentLoaded', function () {
         drawObstacle();
         drawScore();
         collisionDetection();
-
+// Зміна напрямку руху м'яча при зіткненні з межами поля
         if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
             dx = -dx;
         }
+          // Зміна напрямку руху м'яча при зіткненні з верхньою чи нижньою межами поля
         if (y + dy < ballRadius) {
             dy = -dy;
         } else if (y + dy > canvas.height - ballRadius) {
+          // Перевірка на зіткнення з ракеткою або завершення гри
             if (x > paddleX && x < paddleX + paddleWidth) {
                 dy = -dy;
             } else {
@@ -320,19 +326,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
         }
-
+   // Рух ракетки
         if (rightPressed && paddleX < canvas.width - paddleWidth) {
             paddleX += 7;
         } else if (leftPressed && paddleX > 0) {
             paddleX -= 7;
         }
-
+   // Оновлення позиції м'яча
         x += dx;
         y += dy;
-
+ // Виклик функції для малювання наступного кадру гри
         requestAnimationFrame(draw);
     }
-
+// Завантаження раніше збережених результатів
     loadScores();
 </script>
 

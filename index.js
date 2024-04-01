@@ -100,6 +100,7 @@ function displayResults(filteredData, filterName) {
     const resultList = document.createElement('div');
     resultList.innerHTML = `<strong>${filterName}</strong>`;
     
+    //створення HTML-структури для відображення результатів опитування
     if (filteredData.length > 0) {
         filteredData.forEach(item => {
             const resultItem = document.createElement('div');
