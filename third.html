@@ -17,7 +17,6 @@
     <div id="result"></div>
 </div>
 
-<script src="script.js"></script>
 </body>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -28,9 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
         question: "Коли був збудований перший модульний будинок?", 
         answers: [
           { answer: "1837", isCorrect: true },
-          { answer: "1900", isCorrect: false },
-          { answer: "2001", isCorrect: false },
-          { answer: "2019", isCorrect: false }
+          { answer: "1900", isCorrect: true },
+          { answer: "2001", isCorrect: true },
+          { answer: "2019", isCorrect: true }
         ]
       },
       {
@@ -101,32 +100,25 @@ document.addEventListener('DOMContentLoaded', function () {
   // Функція для перевірки відповідей та відображення результату
   function checkAnswers() {
     const userAnswers = [];
+    let correctCount = 0; // Зберігає кількість правильних відповідей
     testData.questions.forEach((question, index) => {
-      const selectedAnswer = document.querySelector(`input[name="question-${index}"]:checked`);
-      if (selectedAnswer) {
-        userAnswers.push(selectedAnswer.value);
-        const isCorrect = question.answers[selectedAnswer.value].isCorrect;
-        if (isCorrect) {
-          selectedAnswer.nextElementSibling.classList.add('correct'); // підсвічуємо наступний елемент після вибраної відповіді
+        const selectedAnswer = document.querySelector(`input[name="question-${index}"]:checked`);
+        if (selectedAnswer) {
+            userAnswers.push(selectedAnswer.value);
+            const isCorrect = question.answers[selectedAnswer.value].isCorrect;
+            if (isCorrect) {
+                correctCount++; // Якщо відповідь правильна, збільшуємо лічильник правильних відповідей
+            }
+            selectedAnswer.nextElementSibling.classList.add(isCorrect ? 'correct' : 'incorrect');
+            // Підсвічуємо відповідь відповідно до її правильності
         } else {
-          selectedAnswer.nextElementSibling.classList.add('incorrect'); // підсвічуємо наступний елемент після вибраної відповіді
+            userAnswers.push(null);
         }
-      } else {
-        userAnswers.push(null);
-      }
-    });
-    const correctAnswers = testData.questions.map(question => {
-      return question.answers.findIndex(answer => answer.isCorrect);
-    });
-    let correctCount = 0;
-    userAnswers.forEach((answer, index) => {
-      if (answer === correctAnswers[index].toString()) {
-        correctCount++;
-      }
     });
     const percentage = (correctCount / testData.questions.length) * 100;
     resultDisplay.textContent = `Ваш результат: ${correctCount} правильних відповідей з ${testData.questions.length} (${percentage}%)`;
-  }
+}
+
 
   renderQuestions();
 
